@@ -127,7 +127,6 @@ async fn reopen_purchased_listing_success() {
     .unwrap();
 
     let reward_center_params = reward_center::create::CreateRewardCenterParams {
-        collection_oracle: None,
         listing_reward_rules: state::ListingRewardRules {
             seller_reward_payout_basis_points: 1000,
             payout_divider: 5,
@@ -327,6 +326,7 @@ async fn reopen_purchased_listing_success() {
         buyer: buyer.pubkey(),
         payer: wallet,
         seller: metadata_owner.pubkey(),
+        payer: wallet,
         authority: wallet,
         token_mint: metadata_mint_address,
         treasury_mint: mint,
